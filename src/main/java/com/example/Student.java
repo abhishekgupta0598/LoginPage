@@ -54,7 +54,12 @@ public class Student {
         return course;
     }
 
-    public void setCourse(List<Course> course) {
-        this.course.add(course.get(0));
+    public void setCourse(Course data, String id) {
+        for(Course c : course){
+            if(c.getId().equals(id)){
+                return;
+            }
+        }
+        this.course.add(data);
     }
 }
