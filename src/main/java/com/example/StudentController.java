@@ -39,9 +39,7 @@ public class StudentController {
     @PostMapping("/student/{id}/course")
     public void createCourse(@RequestBody Course data, @PathVariable String id){
         Student s = getStudent(id);
-        List<Course> value = new ArrayList<>();
-        value.add(data);
-        s.setCourse(value);
+        s.setCourse(data, data.getId());
         courseRepository.save(data);
     }
 
@@ -71,5 +69,4 @@ public class StudentController {
     public void deleteStudent(@PathVariable String id){
         studentRepository.deleteById(id);
     }
-
 }
